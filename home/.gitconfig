@@ -1,0 +1,37 @@
+[user]
+  name = gustin
+  email = gustin@thunderboltlabs.com
+[core]
+  editor = vim -f
+[alias]
+  put = push origin HEAD
+  a = add
+  ci = commit
+  d = diff
+  dc = diff --cached
+  lg = log --graph --decorate --abbrev-commit
+  date = relative
+  ps = git push
+  pl = git pull
+[color]
+  diff = auto
+  status = auto
+  ui = always
+[apply]
+  whitespace = fix
+[branch]
+  autosetupmerge = true
+  autosetuprebase = always
+[push]
+  default = tracking
+[merge]
+  tool = diffmerge
+[mergetool "diffmerge"]
+  cmd = diffmerge --merge\n--result=$MERGED $LOCAL $BASE $REMOTE
+  trustExitCode = true
+[mergetool]
+  keepBackup = false
+[diff]
+  tool = diffmerge
+[difftool "diffmerge"]
+  cmd = /Applications/DiffMerge.app/Contents/MacOS/diffmerge\n--merge --result=$MERGED $LOCAL $BASE $REMOTE
