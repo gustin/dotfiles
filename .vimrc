@@ -31,23 +31,23 @@ set noerrorbells
 set nobackup
 set noswapfile
 
-set pastetoggle=<Leader>z
+set pastetoggle=<F12>
 
 set background=dark
 colorscheme Tomorrow-Night
-
 
 call pathogen#infect()
 
 syntax on
 filetype plugin indent on
 
-
 let mapleader = ','
 let g:Powerline_symbols = 'fancy'
 
 nnoremap <C-B> :BufExplorer<cr>
 nnoremap ; :
+
+nmap <silent> ,/ :nohlsearch<CR>
 
 map <Leader>m :Rmodel
 map <Leader>c :Rcontroller
@@ -65,5 +65,3 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
-nmap <silent> ,/ :nohlsearch<CR>
