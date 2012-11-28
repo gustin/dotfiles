@@ -1,7 +1,8 @@
 set nocompatible
+set encoding=utf-8
 set hidden
 
-set nowrap
+set nowrap 
 set backspace=indent,eol,start
 set number
 
@@ -19,12 +20,13 @@ set smartcase
 set hlsearch
 set incsearch
 
-set history=1000
-set undolevels=1000
+set history=1000        
+set undolevels=1000       
+set laststatus=2
 set wildignore=*.swp,*.bak
-set title
-set visualbell
-set noerrorbells
+set title                
+set visualbell         
+set noerrorbells         
 
 set nobackup
 set noswapfile
@@ -42,6 +44,7 @@ filetype plugin indent on
 
 
 let mapleader = ','
+let g:Powerline_symbols = 'fancy'
 
 nnoremap <C-B> :BufExplorer<cr>
 nnoremap ; :
