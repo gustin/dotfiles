@@ -43,8 +43,11 @@ filetype plugin indent on
 
 let mapleader = ','
 let g:Powerline_symbols = 'fancy'
+let g:turbux_command_prefix = ''
+let g:turbux_command_rspec  = 'rspec'
+let g:turbux_command_turnip = 'rspec'       
 
-nnoremap <C-B> :BufExplorer<cr>
+nnoremap <C-B> :ufExplorer<cr>
 nnoremap ; :
 
 nmap <silent> ,/ :nohlsearch<CR>
