@@ -16,6 +16,7 @@ set smarttab
 
 set ignorecase
 set smartcase
+set spell
 
 set hlsearch
 set incsearch
