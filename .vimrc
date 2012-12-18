@@ -44,6 +44,7 @@ filetype plugin indent on
 
 let mapleader = ','
 let g:Powerline_symbols = 'fancy'
+let g:ctrlp_cmd = 'CtrlPMixed'
 let g:turbux_command_prefix = ''
 let g:turbux_command_rspec  = 'rspec'
 let g:turbux_command_turnip = 'rspec'       
