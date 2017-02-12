@@ -13,6 +13,7 @@ set tabstop=2
 set shiftwidth=2
 set shiftround
 set showmatch
+set expandtab
 set smarttab
 
 set ignorecase
@@ -37,6 +38,8 @@ set pastetoggle=<F12>
 
 set background=dark
 colorscheme Tomorrow-Night
+
+autocmd BufWritePre * :%s/\s\+$//e
 
 call pathogen#infect()
 
