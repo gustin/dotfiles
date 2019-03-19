@@ -1,19 +1,42 @@
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = blue
 [user]
-  name = gustin
-  email = gustin@thunderboltlabs.com
+	name = gustin
+	email = gustin@entryway.net
+	signingkey = 716DC4FFF94CADCAFD0FACA48A3D09EC97486BA7
 [core]
   editor = vim -f
+	filemode = false
 [alias]
-  put = push origin HEAD
   a = add
+  amend = commit -a --amend
+	b = branch
+  bclean = "!f() { git branch --merged ${1-preview} | grep -v " ${1-preview}$" | xargs -r git branch -d; }; f"
+  bdone = git up && git bclean
+	bs = bisect
   ci = commit
-	co = checkout 
+  ch = cherry -v origin
+  cm = !git add -A && git commit -m
+	co = checkout
+  cob = checkout -b
   d = diff
-  dc = diff --cached
-  lg = log --graph --decorate --abbrev-commit
   date = relative
-  ps = git push
+  dc = diff --cached
+  ec = config --global -e
+  glog = log --all --pretty='format:%d %Cgreen%h%Creset %an - %s' --graph
+  lg = log --graph --decorate --abbrev-commit
+  put = push origin HEAD
   pl = git pull
+  ps = git push
+  save = !git add -A && git commit -m 'SAVEPOINT'
+  up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+  undo = reset HEAD~1 --mixed
+  wip = !git add -u && git commit -m 'WIP'
+  wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+[cocommimmit]
+  gpgSign = true
 [color]
   diff = auto
   status = auto
@@ -24,9 +47,10 @@
   autosetupmerge = true
   autosetuprebase = always
 [push]
-  default = tracking
+  default = simple
 [merge]
-  tool = diffmerge
+  tool = opendiff
+  conflictstyle = diff3
 [mergetool "diffmerge"]
   cmd = diffmerge --merge\n--result=$MERGED $LOCAL $BASE $REMOTE
   trustExitCode = true
@@ -36,3 +60,25 @@
   tool = diffmerge
 [difftool "diffmerge"]
   cmd = /Applications/DiffMerge.app/Contents/MacOS/diffmerge\n--merge --result=$MERGED $LOCAL $BASE $REMOTE
+[heroku]
+[status]
+  showUntrackedFiles = all
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[credential]
+	helper = osxkeychain
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[commit]
+	gpgsign = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
