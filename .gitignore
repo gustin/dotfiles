@@ -1,2 +1,12 @@
 .history.*
 .zcompdump
+# Ignore everything in root
+/*
+# Allow following files and directories
+!.zshenv
+!.gitconfig
+!.gitignore
+!.tmux.conf
+!.vimrc
+!/.zsh/
+!/.vim/
