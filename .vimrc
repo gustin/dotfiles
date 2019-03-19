@@ -1,19 +1,20 @@
+autocmd BufWritePre *.* :%s/\s\+$//e
+
 set nocompatible
 set encoding=utf-8
 set hidden
 
-set nowrap 
+set nowrap
 set backspace=indent,eol,start
 set number
 
 set autoindent
-set clipboard=unnamed
 set copyindent
+set expandtab
 set tabstop=2
 set shiftwidth=2
 set shiftround
 set showmatch
-set expandtab
 set smarttab
 
 set ignorecase
@@ -23,13 +24,13 @@ set spell
 set hlsearch
 set incsearch
 
-set history=1000        
-set undolevels=1000       
+set history=1000
+set undolevels=1000
 set laststatus=2
 set wildignore=*.swp,*.bak
-set title                
-set visualbell         
-set noerrorbells         
+set title
+set visualbell
+set noerrorbells
 
 set nobackup
 set noswapfile
@@ -38,8 +39,6 @@ set pastetoggle=<F12>
 
 set background=dark
 colorscheme Tomorrow-Night
-
-autocmd BufWritePre * :%s/\s\+$//e
 
 call pathogen#infect()
 
@@ -50,11 +49,14 @@ let mapleader = ','
 let g:Powerline_symbols = 'fancy'
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:turbux_command_prefix = ''
-let g:turbux_command_rspec  = 'rspec'
-let g:turbux_command_turnip = 'rspec'       
+let g:turbux_command_rspec  = 'be rspec'
+let g:turbux_command_turnip = 'be rspec'
+let g:dispatch_compilers = {'elixir': 'exunit'}
 
 nnoremap <C-B> :ufExplorer<cr>
 nnoremap ; :
+
+:imap jk <Esc>
 
 nmap <silent> ,/ :nohlsearch<CR>
 
@@ -75,4 +77,9 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 
+au FileType go set noexpandtab
+au FileType go set shiftwidth=4
+au FileType go set softtabstop=4
+au FileType go set tabstop=4
