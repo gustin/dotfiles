@@ -12,6 +12,9 @@ alias b='bundle'
 alias bu='b update'
 alias be='b exec'
 
+alias jb='jbundle'
+alias jbe='jbundle exec'
+
 alias lsa='ls -lah'
 alias l='ls -la'
 alias ll='ls -l'
@@ -30,4 +33,4 @@ alias gba='git branch -a'
 alias gcount='git shortlog -sn'
 alias gcp='git cherry-pick'
 
-alias rspec='nocorrect rspec'
+alias bower='noglob bower'
