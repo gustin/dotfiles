@@ -1,5 +1,6 @@
 .history.*
 .zcompdump
+
 # Ignore everything in root
 /*
 # Allow following files and directories
@@ -10,3 +11,7 @@
 !.vimrc
 !/.zsh/
 !/.vim/
+
+.zsh/91_secret_environment.zsh
+.vim/.netrwhist
+.tmuxinator/

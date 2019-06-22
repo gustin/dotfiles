@@ -4,8 +4,8 @@
 	untracked = blue
 [user]
 	name = gustin
-	email = gustin@entryway.net
-	signingkey = 716DC4FFF94CADCAFD0FACA48A3D09EC97486BA7
+	email = gustin@users.noreply.github.com
+	signingkey = 0x4477F7A42EDD0E24
 [core]
   editor = vim -f
 	filemode = false
