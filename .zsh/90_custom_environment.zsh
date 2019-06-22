@@ -7,3 +7,5 @@ export PATH="$PATH:/usr/local/opt/go/libexec/bin"
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+
+

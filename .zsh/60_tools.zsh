@@ -1,7 +1,3 @@
-eval "$(rbenv init -)"
-
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
 . `brew --prefix`/etc/profile.d/z.sh
 
 change () {
@@ -27,5 +23,4 @@ remove-ext() {
   echo "Removing *.$ext"
   find . -name "*.$ext" -type f -delete
 }
-
 
