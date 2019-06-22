@@ -20,6 +20,8 @@ set smarttab
 set ignorecase
 set smartcase
 set spell
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=blue
 
 set hlsearch
 set incsearch
