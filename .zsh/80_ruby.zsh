@@ -1,4 +1,6 @@
-#eval "$(rbenv init -)"
+eval "$(rbenv init -)"
+
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 
 export RUBY_GC_MALLOC_LIMIT=1000000000
 #export RUBY_FREE_MIN=500000

@@ -1,3 +1,5 @@
+if [ "$TMUX" = "" ]; then tmux; fi
+
 _tmuxinator() {
   local commands projects
   commands=(${(f)"$(tmuxinator commands zsh)"})
