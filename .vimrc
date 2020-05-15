@@ -16,12 +16,11 @@ set shiftwidth=2
 set shiftround
 set showmatch
 set smarttab
+set ruler
 
 set ignorecase
 set smartcase
 set spell
-hi clear SpellBad
-hi SpellBad cterm=underline ctermfg=blue
 
 set hlsearch
 set incsearch
@@ -85,3 +84,31 @@ au FileType go set noexpandtab
 au FileType go set shiftwidth=4
 au FileType go set softtabstop=4
 au FileType go set tabstop=4
+
+let g:go_highlight_structs = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_auto_sameids = 1
+
+" svelte
+au! BufNewFile,BufRead *.svelte set ft=html
+
+" set Vue syntax colors correctly
+autocmd FileType vue syntax sync fromstart
+" Kotlin coding conventions are 4 spaces
+autocmd FileType kotlin setlocal shiftwidth=4 tabstop=4
+
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=blue
+
+
