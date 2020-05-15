@@ -4,8 +4,8 @@
 	untracked = blue
 [user]
 	name = gustin
-	email = gustin@users.noreply.github.com
-	signingkey = 0x4477F7A42EDD0E24
+	email = 7021+gustin@users.noreply.github.com
+	signingkey = 55353AAE1A1D6EED
 [core]
   editor = vim -f
 	filemode = false
@@ -41,8 +41,6 @@
   diff = auto
   status = auto
   ui = always
-[apply]
-  whitespace = fix
 [branch]
   autosetupmerge = true
   autosetuprebase = always
