@@ -16,6 +16,7 @@ alias jb='jbundle'
 alias jbe='jbundle exec'
 
 alias lsa='ls -lah'
+alias ls="ls --color=always"
 alias l='ls -la'
 alias ll='ls -l'
 
