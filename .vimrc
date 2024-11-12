@@ -5,8 +5,7 @@ set encoding=utf-8
 set hidden
 
 set nowrap
-set backspace=indent,eol,start
-set number
+set backspace=indent,eol,start set number
 
 set autoindent
 set copyindent
@@ -111,4 +110,5 @@ autocmd FileType kotlin setlocal shiftwidth=4 tabstop=4
 hi clear SpellBad
 hi SpellBad cterm=underline ctermfg=blue
 
-
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
