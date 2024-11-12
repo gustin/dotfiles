@@ -7,6 +7,4 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/Users/gustin/.local/bin:$PATH"
 
-#export NVM_DIR="$HOME/.nvm"
-#. "/usr/local/opt/nvm/nvm.sh"
 

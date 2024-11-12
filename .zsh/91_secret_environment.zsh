@@ -1,0 +1,1 @@
+export FURY_TOKEN=adVVs-hT4AyZg6jvnyvbGfTfk0R6S9dg
