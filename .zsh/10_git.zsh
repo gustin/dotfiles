@@ -74,7 +74,7 @@ function git-alias-shortcuts () {
 
 function git-need-to-push() {
   if pushtime=$(git status | grep 'Your branch is ahead' 2> /dev/null); then
-    echo "â†‘ "
+    echo "^ "
   fi
 }
 
@@ -84,8 +84,12 @@ function git-branch-name () {
 
 # Show character if changes are pending
 git_status() {
-  if current_git_status=$(git status | grep 'added to commit' 2> /dev/null); then
-    echo "â˜ "
+  if git status --porcelain | grep '^M ' > /dev/null 2>&1; then
+    echo "✹ "  # Indicates modified files
+  elif git status --porcelain | grep '^A ' > /dev/null 2>&1; then
+    echo "✎ "  # Indicates added files
+  elif git status --porcelain | grep '^?? ' > /dev/null 2>&1; then
+    echo "? "  # Indicates untracked files
   fi
 }
 
@@ -95,7 +99,7 @@ function git-dirty () {
 }
 
 function gsrb () {
-  branch=$(git-branch-name) 
+  branch=$(git-branch-name)
   git checkout master
   git svn rebase
   git checkout "${branch}"
@@ -103,15 +107,30 @@ function gsrb () {
 }
 
 function git-prompt() {
-  gstatus=$(git status 2> /dev/null)
-  branch=$(echo $gstatus | head -1 | sed 's/^# On branch //')
-  dirty=$(echo $gstatus | sed 's/^#.*$//' | tail -2 | grep 'nothing to commit (working directory clean)'; echo $?)
+  # Check if we're in a Git repository
+  if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    return  # Exit the function if not in a Git repository
+  fi
 
-  if [[ x$branch != x ]]; then
-    push_status=$(git-need-to-push)
-    dirty_color=$fg[green]
-    if [[ $dirty = 1 ]] { dirty_color=$fg[magenta] }
-    [ x$branch != x ] && echo "%{$dirty_color%}$branch %{$reset_color%}$push_status"
+  # Get the git status in a machine-readable format
+  gstatus=$(git status --porcelain --branch 2>/dev/null)
+  branch=$(echo "$gstatus" | head -1 | sed -E 's/^## ([^ .]+).*/\1/')
+
+  # Determine ahead/behind status
+  ahead=$(echo "$gstatus" | grep -o 'ahead [0-9]*' | cut -d' ' -f2)
+  behind=$(echo "$gstatus" | grep -o 'behind [0-9]*' | cut -d' ' -f2)
+
+  # Create arrows for ahead/behind
+  arrows=""
+  [[ -n "$ahead" ]] && arrows="^$ahead"
+  [[ -n "$behind" ]] && arrows="$arrows v$behind"
+
+  # Staged/untracked changes
+  git_status_output=$(git_status)
+
+  # Output the branch name and indicators
+  if [[ -n "$branch" ]]; then
+    echo "⭑ $branch $arrows $git_status_output"
   fi
 }
 
